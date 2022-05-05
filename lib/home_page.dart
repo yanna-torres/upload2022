@@ -1,28 +1,32 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_teste/home_controller.dart';
-
 import 'dynamic.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    var controller =
-        context.dependOnInheritedWidgetOfExactType<HomeController>()!;
+  State<HomePage> createState() => _HomePageState();
+}
 
+class _HomePageState extends State<HomePage> {
+  List<dynamicWidget> dynamicList = [];
+
+  addDynamic() {
+    dynamicList.add(new dynamicWidget());
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home'),
+        title: const Text('Home'),
       ),
-      body: Center(
+      body: const Center(
         child: Text('data'),
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: () {
-          //adicionar cards....
-        },
+        child: const Icon(Icons.add),
+        onPressed: addDynamic,
       ),
     );
   }
