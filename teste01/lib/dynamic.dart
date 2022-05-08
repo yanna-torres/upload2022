@@ -5,18 +5,21 @@ class dynamicWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListBody(
+    return Flex(
+      direction: Axis.vertical,
       children: <Widget>[
-        Row(
+        ListBody(
+          mainAxis: Axis.vertical,
           children: <Widget>[
             Container(
-              padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
-              height: 220,
-              width: double.maxFinite,
+              height: 100,
               child: Card(
-                elevation: 5,
+                margin: EdgeInsets.all(16),
+                child: Center(
+                  child: Text("Paciente"),
+                ),
               ),
-            ),
+            )
           ],
         )
       ],

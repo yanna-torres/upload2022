@@ -12,7 +12,9 @@ class _HomePageState extends State<HomePage> {
   List<dynamicWidget> dynamicList = [];
 
   addDynamic() {
-    dynamicList.add(new dynamicWidget());
+    setState(() {
+      dynamicList.add(new dynamicWidget());
+    });
   }
 
   @override
@@ -21,12 +23,11 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Text('Home'),
       ),
-      body: const Center(
-        child: Text('data'),
-      ),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
-        onPressed: addDynamic,
+        onPressed: () {
+          addDynamic;
+        },
       ),
     );
   }
